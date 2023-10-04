@@ -3,7 +3,7 @@ import numpy as np
 
 def mesh_function(f, t):
     fn = np.zeros(len(t))
-    for i, tn in enumerate(tn)
+    for i, tn in enumerate(tn):
         fn[i] = f(tn)
     return fn
 

@@ -6,7 +6,7 @@ def differentiate(u, dt):
     du = np.zeros(N)
     du[0] = (u[1]-u[0])/dt
     du[-1] = (u[-1]-u[-2])/dt
-    for i in range(1,N-1)
+    for i in range(1,N-1):
         du[i] = (u[i+1] - u[i-1])/(2*dt)
     return du
 

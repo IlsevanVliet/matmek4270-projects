@@ -13,7 +13,7 @@ def func(t):
     elif t > 3 and t <= 4:
         return np.exp(-3*t)
     else:
-        raise Runtimeerror(f"Wrong input t = {t}")
+        raise RuntimeError(f"Wrong input t = {t}")
 
 def test_mesh_function():
     t = np.array([1, 2, 3, 4])

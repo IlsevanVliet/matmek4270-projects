@@ -216,7 +216,8 @@ class VibFD5(VibFD2):
         VibSolver.__init__(self, Nt, T, w, I)
 
     def ue(self): 
-        return t**4
+        #return t**4
+        return sp.exp(sp.sin(t))
     
     def matrix(self):
         D2 = (1/self.dt**2) * sparse.diags([1,-2,1], [-1,0,1], (self.Nt+1, self.Nt+1))
@@ -230,7 +231,7 @@ class VibFD5(VibFD2):
         A, b = self.matrix()
         A[0, :3] = 1, 0, 0
         A[-1, -3:] = 0, 0, 1
-        b[0]= self.ue().subs(t,0)
+        b[0] = self.ue().subs(t,0)
         b[-1] = self.ue().subs(t,self.T)
         u = sparse.linalg.spsolve(A.tocsr(), b)
         return u
